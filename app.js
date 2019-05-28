@@ -33,11 +33,11 @@ function login(uid, password){
 }
 
 var logins=[];
-logins.push(new login("bobby5","mygoodpassword"));
-logins.push(new login("jj3","myevenbetterpassword"));
-logins.push(new login("jimbo","password123"));
-logins.push(new login("karen23","usa123"));
-logins.push(new login("repo22","catch22"));
+logins.push(new login("bobby5", "mygoodpassword"));
+logins.push(new login("jj3", "myevenbetterpassword"));
+logins.push(new login("jimbo", "password123"));
+logins.push(new login("karen23", "usa123"));
+logins.push(new login("repo22", "catch22"));
 
 //ROUTES
 
@@ -46,7 +46,6 @@ app.get('/',function(req,res){
   res.render('home');
 });
 
-
 //GET route for browse articles
 //Displays list of articles
 app.get('/article-table', function(req, res){
@@ -54,7 +53,6 @@ app.get('/article-table', function(req, res){
   context.articles = articles;
   res.render('article-table', context);
 });
-
 
 
 //This route displays login form
@@ -74,15 +72,27 @@ app.post('/verify-login', function(req, res){
   //TODO:  check request uid and password versus logins array
   // If is valid, redirect to somewhere
   // If invalid, do something else, maybe redirect back to login form with error
-  
-
+  function check(uid, password){
+    if(uid == login[0] && password == login[1]){
+      window.open('home.html')
+    }
+    else if(uid == login[2] && password == login[3]{
+      window.open('home.html')
+    }
+    else if(uid == login[4] && password == login[5]{
+      window.open('home.html')
+    }
+    else if(uid == login[6] && password == login[7]{
+      window.open('home.html')
+    }
+    else if(uid == login[8] && password == login[9]{
+      window.open('home.html')
+    }
+    else{
+      alert("Error Passowrd or Username does not match.")
+    }
+  }
 });
-
-
-
-
-
-
 
 //ERROR stuff
 app.use(function(req,res){
