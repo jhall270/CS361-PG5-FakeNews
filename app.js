@@ -89,7 +89,7 @@ app.post('/verify-login', function(req, res){
       window.open('home.html')
     }
     else{
-      alert("Error Password and Username does not match.")
+      window.open('login-form')
     }
   }
 });
