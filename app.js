@@ -22,6 +22,9 @@ var articles=[];
 articles.push(new article("New Taco Shop Opening", "www.tacotracker.net/mrtaco-23421"));
 articles.push(new article("3 Ways to Cut Your Own Hair", "www.nytimes.com/haircutting-tips-261"));
 articles.push(new article("Are You Harry Potter?", "www.potter.net/harrypottertest-34231"));
+articles.push(new article("NBA goes bankrupt", "www.nba/financeleague.com"));
+articles.push(new article("50% of American die of lung disease", "www.cnn/health/stats22.com"));
+articles.push(new article("See more wine country for improved lifestyle", "www.winehealth/lifestyle.com"));
 
 
 function login(uid, password){
