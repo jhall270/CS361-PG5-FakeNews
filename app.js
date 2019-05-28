@@ -32,9 +32,9 @@ function login(uid, password){
 var logins=[];
 logins.push(new login("bobby5","mygoodpassword"));
 logins.push(new login("jj3","myevenbetterpassword"));
-
-
-
+logins.push(new login("jimbo","password123"));
+logins.push(new login("karen23","usa123"));
+logins.push(new login("repo22","catch22"));
 
 //ROUTES
 
