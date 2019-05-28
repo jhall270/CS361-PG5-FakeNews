@@ -74,22 +74,22 @@ app.post('/verify-login', function(req, res){
   // If invalid, do something else, maybe redirect back to login form with error
   function check(uid, password){
     if(uid == login[0] && password == login[1]){
-      window.open('home.html')
+      window.open('home.html');
     }
     else if(uid == login[2] && password == login[3]{
-      window.open('home.html')
+      window.open('home.html');
     }
     else if(uid == login[4] && password == login[5]{
-      window.open('home.html')
+      window.open('home.html');
     }
     else if(uid == login[6] && password == login[7]{
-      window.open('home.html')
+      window.open('home.html');
     }
     else if(uid == login[8] && password == login[9]{
-      window.open('home.html')
+      window.open('home.html');
     }
     else{
-      window.open('login-form')
+      alert("Error Password and Username does not match.");
     }
   }
 });
