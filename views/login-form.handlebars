@@ -1,15 +1,21 @@
 <title>PG5 login</title>
 
-<form action="/verify-login" method="post">
-  <div>
-    <label for="uid">Username:</label>
-    <input id="uid" type="text" name="uid">
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input id="password" type="text" name="password">
-  </div>
-  <div>
-    <input type="submit" value="Login">    
-  </div>
-</form>
+<div>
+  {{error}}
+</div>
+
+<div>
+  <form action="/verify-login" method="post">
+    <div>
+      <label for="uid">Username:</label>
+      <input id="uid" type="text" name="uid">
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input id="password" type="text" name="password">
+    </div>
+    <div>
+      <input type="submit" value="Login">    
+    </div>
+  </form>
+</div>

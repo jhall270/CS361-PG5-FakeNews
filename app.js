@@ -69,6 +69,8 @@ app.post('/verify-login', function(req, res){
   uid = req.body.uid;
   password = req.body.password;
 
+  console.log(uid + "," + password);
+
   //TODO:  check request uid and password versus logins array
   // If is valid, redirect to somewhere
   // If invalid, do something else, maybe redirect back to login form with error
@@ -76,11 +78,13 @@ app.post('/verify-login', function(req, res){
     if(uid == logins[i].uid && password == logins[i].password){
       //password matches, redirect to article table browse?
       res.redirect('/article-table');
+      return;
     }
   }
  
   //no match
   //alert("Error Password and Username does not match.");
+  context.error = "Error Password and Username does not match.";
   res.render('login-form', context);
 
 });
