@@ -72,26 +72,17 @@ app.post('/verify-login', function(req, res){
   //TODO:  check request uid and password versus logins array
   // If is valid, redirect to somewhere
   // If invalid, do something else, maybe redirect back to login form with error
-  function check(uid, password){
-    if(uid == login[0] && password == login[1]){
-      window.open('home.html');
-    }
-    else if(uid == login[2] && password == login[3]{
-      window.open('home.html');
-    }
-    else if(uid == login[4] && password == login[5]{
-      window.open('home.html');
-    }
-    else if(uid == login[6] && password == login[7]{
-      window.open('home.html');
-    }
-    else if(uid == login[8] && password == login[9]{
-      window.open('home.html');
-    }
-    else{
-      alert("Error Password and Username does not match.");
+  for(var i=0; i<logins.length; i++){
+    if(uid == logins[i].uid && password == logins[i].password){
+      //password matches, redirect to article table browse?
+      res.redirect('/article-table');
     }
   }
+ 
+  //no match
+  //alert("Error Password and Username does not match.");
+  res.render('login-form', context);
+
 });
 
 //ERROR stuff
