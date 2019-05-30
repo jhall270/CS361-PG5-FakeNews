@@ -4,12 +4,17 @@ var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
 
+// this will allow us to use JavaScript and CSS..in the public directory
+var serveStatic = require('serve-static');
+var path = require('path');
+app.use('/', express.static(path.join(__dirname, 'public')))
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 8332);
+app.set('port', 15100);
 
 
 //GLOBAL VARIABLE ARRAYS SIMULATING DATABASE TABLES
