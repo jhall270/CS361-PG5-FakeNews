@@ -51,6 +51,13 @@ app.get('/',function(req,res){
   res.render('home');
 });
 
+// route to siteAdminPage
+app.get('/siteAdmin', function(req, res){
+	var context = {};
+	
+	res.render('siteAdmin');
+});
+
 //GET route for browse articles
 //Displays list of articles
 app.get('/article-table', function(req, res){
