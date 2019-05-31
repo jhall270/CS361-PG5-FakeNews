@@ -74,3 +74,9 @@ ul {
   font-size: 20px;
 }
 
+a {
+	position: absolute;
+	bottom: 20px;
+	left: 25%;
+}
+
