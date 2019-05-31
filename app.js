@@ -64,7 +64,7 @@ app.get('/login', function(req, res){
 });
 
 // route to siteAdminPage
-app.get('/siteAdmin', function(req, res) {
+app.get('/siteAdmin', function(req, res){
 	var context = {};
 	
 	res.render('siteAdmin');
