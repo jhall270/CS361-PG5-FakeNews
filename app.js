@@ -63,6 +63,13 @@ app.get('/login', function(req, res){
   res.render('login-form', context);
 });
 
+// route to siteAdminPage
+app.get('/siteAdmin', function(req, res) {
+	var context = {};
+	
+	res.render('siteAdmin');
+});
+
 //POST route login forms sends uid/password here to be verified
 app.post('/verify-login', function(req, res){
   var context = {};
