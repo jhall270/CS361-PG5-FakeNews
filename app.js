@@ -4,12 +4,17 @@ var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
 
+// this will allow us to use JavaScript and CSS..in the public directory
+var serveStatic = require('serve-static');
+var path = require('path');
+app.use('/', express.static(path.join(__dirname, 'public')))
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 8332);
+app.set('port', 15100);
 
 
 //GLOBAL VARIABLE ARRAYS SIMULATING DATABASE TABLES
@@ -46,6 +51,13 @@ app.get('/',function(req,res){
   res.render('home');
 });
 
+// route to siteAdminPage
+app.get('/siteAdmin', function(req, res){
+	var context = {};
+	
+	res.render('siteAdmin');
+});
+
 //GET route for browse articles
 //Displays list of articles
 app.get('/article-table', function(req, res){
@@ -61,13 +73,6 @@ app.get('/login', function(req, res){
   var context = {};
 
   res.render('login-form', context);
-});
-
-// route to siteAdminPage
-app.get('/siteAdmin', function(req, res){
-	var context = {};
-	
-	res.render('siteAdmin');
 });
 
 //POST route login forms sends uid/password here to be verified
