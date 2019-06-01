@@ -51,7 +51,7 @@ h2 {
 #logoption {
   position: absolute;
   top: 30%;
-  left: 30%;
+  left: 32%;
   width: 800px;
   height: 300px;
   margin: 50px 50px;
@@ -72,7 +72,7 @@ ul {
   font-size: 20px;
 }
 
-#siteA {
+.sit {
 	position: absolute;
 	bottom: 20px;
 	left: 75%;
