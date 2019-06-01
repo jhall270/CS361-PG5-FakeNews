@@ -10,28 +10,36 @@ PG5 Industries 1-(800)Joe-help
    but we understand that you may be experiencing an issue,
    so we've included the form below</p></br>
 
-<form action="mailto:Joe.Shmoe@gmail.com" type="POST">
-	<fieldset id="innerSet">
+<fieldset id="outerSet">
 	<legend>Please fill out the form below</legend>
-	<input type="text" value="Username">
-	<input type="password" value="Password">
+	
+	<form action="mailto:Joe.Shmoe@gmail.com" type="POST">
+	
+		<label for="username">Username</label>
+		<input type="text" name="username" minlength="4" maxlength="50" required>
+	
+		<label for="myPW">password</label>
+		<input type="password" name="myPW" minlength="8" required>
+			
 		<div>
-		<fieldset>
-			<legend>Complaint Type</legend>
-			<input type="radio" id="otherUser" value="report other user">
 			<label for="otherUser">other user</label>
-			
-			<input type="radio" id="inaprop" value="inappropriate conduct">
-			<label for="inaprop">inappropriate conduct</label>
-			
-			<input type="radio" id="tech" value="technical">
-			<label for="tech">technical</label>
-			
-			<input type="text" id="description" minlength=4 maxlength=1000 required>
-			<label for="description">description</lable>
-			
-		</fieldset>
+			<input type="radio" id="otherUser" value="report other user">
 		</div>
-		<input type="submit" value="send report" disabled>
-	</fieldset>
-</form>
+		<div>
+			<label for="inaprop">inappropriate conduct</label>
+			<input type="radio" id="inaprop" value="inappropriate conduct">
+		</div>
+		<div>
+			<label for="tech">technical</label>
+			<input type="radio" id="tech" value="technical">
+		</div>
+		<div>			
+			<label for="description">description</label>
+			<input type="text" id="description" minlength="4" maxlength="1000" required>
+		</div>
+	
+
+	<p><input type="submit" value="send report" disabled></p>
+	</form>
+	
+</fieldset>
