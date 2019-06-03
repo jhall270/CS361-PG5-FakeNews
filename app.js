@@ -18,6 +18,8 @@ app.set('port', 15100);
 
 
 //GLOBAL VARIABLE ARRAYS SIMULATING DATABASE TABLES
+
+//creating articles table
 function article(title, url){
   this.title = title;
   this.url = url;
@@ -32,6 +34,8 @@ articles.push(new article("50% of American die of lung disease", "www.cnn/health
 articles.push(new article("See more wine country for improved lifestyle", "www.winehealth/lifestyle.com"));
 
 
+
+//creating user logins table
 function login(uid, password){
   this.uid = uid;
   this.password = password;
@@ -44,9 +48,25 @@ logins.push(new login("jimbo", "password123"));
 logins.push(new login("karen23", "usa123"));
 logins.push(new login("repo22", "catch22"));
 
+
+//creating user profiles table
+function profile(uid, firstName, lastName, email, profileText){
+  this.uid = uid;
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.email = email;
+  this.profileText = profileText;
+}
+var profiles = [];
+profiles.push(new profile("bobby5", "Robert", "Smith", "bobby5@hotmail.com", "I like to skateboard and rate news articles."));
+
+
+
+
+
 //ROUTES
 
-//TODO: home page with links to other parts
+//home page with links to other parts
 app.get('/',function(req,res){
   res.render('home');
 });
@@ -83,7 +103,7 @@ app.post('/verify-login', function(req, res){
 
   console.log(uid + "," + password);
 
-  //TODO:  check request uid and password versus logins array
+  // check request uid and password versus logins array
   // If is valid, redirect to somewhere
   // If invalid, do something else, maybe redirect back to login form with error
   for(var i=0; i<logins.length; i++){
@@ -100,6 +120,68 @@ app.post('/verify-login', function(req, res){
   res.render('login-form', context);
 
 });
+
+
+//user profile update form
+//query string needs to have user id, displays pre-filled form for update
+app.get('/update-profile', function(req, res){
+  var context = {};
+  var uid = req.query.uid;
+
+  //if there was a user id submitted, try to find in table
+  if(uid.length > 0){
+    for(var i=0; i<profiles.length; i++){
+      if(profile[i].uid = uid){
+        context.uid = uid;
+        context.firstName = profile[i].firstName;
+        context.lastName = profile[i].lastName;
+        context.email = profile[i].email;
+        context.profileText = profile[i].profileText;
+
+        res.render('update-profile-form', context);
+        return;
+      }
+    }
+
+  }
+  
+  //unable to find a profile to update, display error page
+  res.render('update-profile-error', context);
+
+});
+
+
+//post route for any updates to user profile
+//updated data is sent in post body
+app.post('/update-profile-post', function(req, res){
+  var context = {};
+  uid = req.body.uid;
+
+  for(let i=0; i<profiles.length; i++){
+    //find matching profile and write new values
+    if(profiles[i].uid = uid){
+      profiles[i].firstName = req.body.firstName;
+      profiles[i].lastName = req.body.lastName;
+      profiles[i].email = req.body.email;
+      profiles[i].profileText = req.body.profileText;
+
+      context.status = 'success';
+      res.render('update-profile-status', context);
+      return;
+    }
+  }
+
+  //else there was some error 
+  context.status = 'error';
+  res.render('update-profile-status', context);
+
+});
+
+
+
+
+
+
 
 //ERROR stuff
 app.use(function(req,res){

@@ -1,0 +1,21 @@
+<form action='/update-profile-post' method='post'>
+    <p>Edit Profile {{uid}}</p>
+    <div>
+        <label for="firstName"> First Name: </label>
+        <input type='text' name='firstName' id='firstName' value='{{firstName}}' required>                
+    </div>
+    <div>
+        <label for="lastName"> Last Name: </label>
+        <input type='text' name='lastName' id='lastName' value='{{lastName}}' required>                
+    </div>
+    <div>
+        <label for="email"> Email: </label>
+        <input type='text' name='email' id='email' value='{{email}}' required>                
+    </div>
+    <div>
+        <label for="profileText"> Profile Description: </label>
+        <input type='profileText' name='profileText' id='profileText' value='{{profileText}}' required>                
+    </div>
+    <input type="hidden" id="uid" name='uid' value={{uid}}>         
+    <input type="submit" value="Submit">
+</form>
