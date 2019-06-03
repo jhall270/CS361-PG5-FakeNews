@@ -1,1 +1,9 @@
-
+<h1>List of articles saved:</h1>
+<ul>
+  {{#each articles}}
+    <li>{{this.title}}</li>
+      <ul>
+        <li>{{this.url}}</li>
+      </ul>
+  {{/each}}
+</ul>
