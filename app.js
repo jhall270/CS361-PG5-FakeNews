@@ -75,6 +75,10 @@ app.get('/login', function(req, res){
   res.render('login-form', context);
 });
 
+app.get('/logout', function(req,res){
+	res.redirect('home');
+});
+
 //POST route login forms sends uid/password here to be verified
 app.post('/verify-login', function(req, res){
   var context = {};
