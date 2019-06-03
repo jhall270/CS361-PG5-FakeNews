@@ -31,6 +31,16 @@ articles.push(new article("NBA goes bankrupt", "www.nba/financeleague.com"));
 articles.push(new article("50% of American die of lung disease", "www.cnn/health/stats22.com"));
 articles.push(new article("See more wine country for improved lifestyle", "www.winehealth/lifestyle.com"));
 
+function savedArticles(title, url){
+  this.title = title;
+  this.url = url;
+}
+
+var savedArticle=[];
+savedArticle.push(new savedArticle("45 year old baby", "www.newborn.net/simplelife"));
+savedArticle.push(new savedArticle("Cat turns grey", "www.newcat.com"));
+savedArticle.push(new savedArticle("Dad turns 12", "www.cnn/lifestyle.com"));
+savedArtcile.push(new savedArticle("Highschool diploma fakes", "www.cnbc/education"));
 
 function login(uid, password){
   this.uid = uid;
@@ -66,6 +76,13 @@ app.get('/article-table', function(req, res){
   res.render('article-table', context);
 });
 
+//GET route for saved artciles
+//Displays list of saved articles
+app.get('/article-saved', function(req, res){
+  var context = {};
+  context.savedArticle = savedArticle;
+  res.render('article-saved', context);
+});
 
 //This route displays login form
 //form submit posts to verify-login route
