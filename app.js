@@ -129,7 +129,7 @@ app.get('/update-profile', function(req, res){
   var uid = req.query.uid;
 
   //if there was a user id submitted, try to find in table
-  if(uid.length > 0){
+  if(uid){
     for(var i=0; i<profiles.length; i++){
       if(profile[i].uid = uid){
         context.uid = uid;
