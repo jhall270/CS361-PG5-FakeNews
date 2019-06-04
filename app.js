@@ -131,12 +131,12 @@ app.get('/update-profile', function(req, res){
   //if there was a user id submitted, try to find in table
   if(uid){
     for(var i=0; i<profiles.length; i++){
-      if(profile[i].uid == uid){
+      if(profiles[i].uid == uid){
         context.uid = uid;
-        context.firstName = profile[i].firstName;
-        context.lastName = profile[i].lastName;
-        context.email = profile[i].email;
-        context.profileText = profile[i].profileText;
+        context.firstName = profiles[i].firstName;
+        context.lastName = profiles[i].lastName;
+        context.email = profiles[i].email;
+        context.profileText = profiles[i].profileText;
 
         res.render('update-profile-form', context);
         return;
