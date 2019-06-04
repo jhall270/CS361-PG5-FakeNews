@@ -78,4 +78,14 @@ ul {
 	left: 75%;
 }
 
+#log-button {
+  height: 40px;
+  width: 90px;
+  margin: 100px 120px;
+  border: none;
+  font-size: 25px;
+  position: absolute;
+  top: -6%;
+  right: -3%;
+}
 
