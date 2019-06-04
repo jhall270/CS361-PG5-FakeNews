@@ -146,7 +146,8 @@ app.get('/update-profile', function(req, res){
   }
   
   //unable to find a profile to update, display error page
-  res.render('update-profile-error', context);
+  context.status = 'Error: Unable to find profile for user id: ' + uid;
+  res.render('update-profile-status', context);
 
 });
 
@@ -165,14 +166,14 @@ app.post('/update-profile-post', function(req, res){
       profiles[i].email = req.body.email;
       profiles[i].profileText = req.body.profileText;
 
-      context.status = 'success';
+      context.status = 'Success: Profile for ' + uid + ' successfully update';
       res.render('update-profile-status', context);
       return;
     }
   }
 
   //else there was some error 
-  context.status = 'error';
+  context.status = 'Error: unable to update profile';
   res.render('update-profile-status', context);
 
 });
