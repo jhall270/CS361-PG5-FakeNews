@@ -59,6 +59,10 @@ function profile(uid, firstName, lastName, email, profileText){
 }
 var profiles = [];
 profiles.push(new profile("bobby5", "Robert", "Smith", "bobby5@hotmail.com", "I like to skateboard and rate news articles."));
+profiles.push(new profile("jj3", "Johnny", "Jenkins", "jj@hotmail.com", "Takin care of business"));
+profiles.push(new profile("jimbo", "James", "McDougal", "jimbo@aol.com", "West Philadelphia born and raised"));
+profiles.push(new profile("karen23", "Karen", "Williams", "kw@comcast.net", "News Junky"));
+profiles.push(new profile("repo22", "Donald", "Trumpkins", "repo22@hotmail.com", "Dog walker, article rater"));
 
 
 
