@@ -18,6 +18,8 @@ app.set('port', 15100);
 
 
 //GLOBAL VARIABLE ARRAYS SIMULATING DATABASE TABLES
+
+//creating articles table
 function article(title, url){
   this.title = title;
   this.url = url;
@@ -42,6 +44,8 @@ savedArticle.push(new savedArticle("Cat turns grey", "www.newcat.com"));
 savedArticle.push(new savedArticle("Dad turns 12", "www.cnn/lifestyle.com"));
 savedArtcile.push(new savedArticle("Highschool diploma fakes", "www.cnbc/education"));
 
+
+//creating user logins table
 function login(uid, password){
   this.uid = uid;
   this.password = password;
@@ -54,9 +58,29 @@ logins.push(new login("jimbo", "password123"));
 logins.push(new login("karen23", "usa123"));
 logins.push(new login("repo22", "catch22"));
 
+
+//creating user profiles table
+function profile(uid, firstName, lastName, email, profileText){
+  this.uid = uid;
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.email = email;
+  this.profileText = profileText;
+}
+var profiles = [];
+profiles.push(new profile("bobby5", "Robert", "Smith", "bobby5@hotmail.com", "I like to skateboard and rate news articles."));
+profiles.push(new profile("jj3", "Johnny", "Jenkins", "jj@hotmail.com", "Takin care of business"));
+profiles.push(new profile("jimbo", "James", "McDougal", "jimbo@aol.com", "West Philadelphia born and raised"));
+profiles.push(new profile("karen23", "Karen", "Williams", "kw@comcast.net", "News Junky"));
+profiles.push(new profile("repo22", "Donald", "Trumpkins", "repo22@hotmail.com", "Dog walker, article rater"));
+
+
+
+
+
 //ROUTES
 
-//TODO: home page with links to other parts
+//home page with links to other parts
 app.get('/',function(req,res){
   res.render('home');
 });
@@ -100,7 +124,7 @@ app.post('/verify-login', function(req, res){
 
   console.log(uid + "," + password);
 
-  //TODO:  check request uid and password versus logins array
+  // check request uid and password versus logins array
   // If is valid, redirect to somewhere
   // If invalid, do something else, maybe redirect back to login form with error
   for(var i=0; i<logins.length; i++){
@@ -117,6 +141,69 @@ app.post('/verify-login', function(req, res){
   res.render('login-form', context);
 
 });
+
+
+//user profile update form
+//query string needs to have user id, displays pre-filled form for update
+app.get('/update-profile', function(req, res){
+  var context = {};
+  var uid = req.query.uid;
+
+  //if there was a user id submitted, try to find in table
+  if(uid){
+    for(var i=0; i<profiles.length; i++){
+      if(profiles[i].uid == uid){
+        context.uid = uid;
+        context.firstName = profiles[i].firstName;
+        context.lastName = profiles[i].lastName;
+        context.email = profiles[i].email;
+        context.profileText = profiles[i].profileText;
+
+        res.render('update-profile-form', context);
+        return;
+      }
+    }
+
+  }
+  
+  //unable to find a profile to update, display error page
+  context.status = 'Error: Unable to find profile for user id: ' + uid;
+  res.render('update-profile-status', context);
+
+});
+
+
+//post route for any updates to user profile
+//updated data is sent in post body
+app.post('/update-profile-post', function(req, res){
+  var context = {};
+  uid = req.body.uid;
+
+  for(let i=0; i<profiles.length; i++){
+    //find matching profile and write new values
+    if(profiles[i].uid = uid){
+      profiles[i].firstName = req.body.firstName;
+      profiles[i].lastName = req.body.lastName;
+      profiles[i].email = req.body.email;
+      profiles[i].profileText = req.body.profileText;
+
+      context.status = 'Success: Profile for ' + uid + ' successfully update';
+      res.render('update-profile-status', context);
+      return;
+    }
+  }
+
+  //else there was some error 
+  context.status = 'Error: unable to update profile';
+  res.render('update-profile-status', context);
+
+});
+
+
+
+
+
+
 
 //ERROR stuff
 app.use(function(req,res){
