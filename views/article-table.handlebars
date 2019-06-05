@@ -9,9 +9,11 @@
 </ul>
 
 <div> 
-  <button onclick="window.location.href='/article-saved'">Saved Article List</button>
+  <button id="see-saved-btn" onclick=goToSaved()>Saved Article List</button>
 </div>
 
 <script>
-	var goToSaved = function
+	var goToSaved = function (){
+			window.location.href="/article-saved";
+	}
 </script>
