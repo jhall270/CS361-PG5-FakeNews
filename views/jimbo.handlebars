@@ -8,8 +8,14 @@
 	<li><a href="/siteAdmin" id="siteA">Contact Site Administrator</a></li>
 </div>
 
+<button id = "log-button" onclick=logOff()>Logout</button>
+
 <script>
 	var goToSaved = function (){
 			window.location.href="/article-saved";
-	}
+	};
+	
+		var logOff = function (){
+			window.location.href="/logout";
+	};
 </script>
