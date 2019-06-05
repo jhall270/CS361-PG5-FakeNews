@@ -123,20 +123,22 @@ app.post('/verify-login', function(req, res){
   password = req.body.password;
 
   console.log(uid + "," + password);
-
-  // check request uid and password versus logins array
-  // If is valid, redirect to somewhere
-  // If invalid, do something else, maybe redirect back to login form with error
-  for(var i=0; i<logins.length; i++){
+  
 	if (uid == "jimbo" && password == "password123"){
 	  res.redirect('/jimbo');
 	}
-    else if(uid == logins[i].uid && password == logins[i].password){
-      //password matches, redirect to article table browse?
-      res.redirect('/article-table');
-      return;
-    }
-  }
+	else{
+		// check request uid and password versus logins array
+		// If is valid, redirect to somewhere
+		// If invalid, do something else, maybe redirect back to login form with error
+		for(var i=0; i<logins.length; i++){
+			if(uid == logins[i].uid && password == logins[i].password){
+			//password matches, redirect to article table browse?
+			res.redirect('/article-table');
+		return;
+		}
+	}
+	}
  
   //no match
   //alert("Error Password and Username does not match.");
