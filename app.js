@@ -149,7 +149,7 @@ app.post('/verify-login', function(req, res){
 
 app.get('/jimbo', function(req,res){
 	res.redirect('/jimbo');
-}
+});
 
 
 //user profile update form
