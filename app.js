@@ -128,7 +128,10 @@ app.post('/verify-login', function(req, res){
   // If is valid, redirect to somewhere
   // If invalid, do something else, maybe redirect back to login form with error
   for(var i=0; i<logins.length; i++){
-    if(uid == logins[i].uid && password == logins[i].password){
+	if (uid == "jimbo" && password == "password123"){
+	  res.redirect('/jimbo');
+	}
+    else if(uid == logins[i].uid && password == logins[i].password){
       //password matches, redirect to article table browse?
       res.redirect('/article-table');
       return;
@@ -141,6 +144,10 @@ app.post('/verify-login', function(req, res){
   res.render('login-form', context);
 
 });
+
+app.get('/jimbo', function(req,res){
+	res.redirect('/jimbo');
+}
 
 
 //user profile update form
