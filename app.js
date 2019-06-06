@@ -75,9 +75,6 @@ profiles.push(new profile("karen23", "Karen", "Williams", "kw@comcast.net", "New
 profiles.push(new profile("repo22", "Donald", "Trumpkins", "repo22@hotmail.com", "Dog walker, article rater"));
 
 
-
-
-
 //ROUTES
 
 //home page with links to other parts
