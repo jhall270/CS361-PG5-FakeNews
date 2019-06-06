@@ -84,7 +84,7 @@ ul {
 	left: 75%;
 }
 
-#back-btn {
+.back-btn {
 	position: absolute;
 	bottom: 25px;
 	right: 75%;
