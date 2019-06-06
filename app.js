@@ -124,20 +124,20 @@ app.post('/verify-login', function(req, res){
 
   console.log(uid + "," + password);
   
-	if (uid == "jimbo" && password == "password123"){
-	  res.redirect('/jimbo');
-	}
-	else{
-		// check request uid and password versus logins array
-		// If is valid, redirect to somewhere
-		// If invalid, do something else, maybe redirect back to login form with error
-		for(var i=0; i<logins.length; i++){
-			if(uid == logins[i].uid && password == logins[i].password){
-			//password matches, redirect to article table browse?
-			res.redirect('/article-table');
-		return;
+		if (uid == "jimbo" && password == "password123"){
+		res.redirect('/jimbo');
 		}
-	}
+		else{
+			// check request uid and password versus logins array
+			// If is valid, redirect to somewhere
+			// If invalid, do something else, maybe redirect back to login form with error
+			for(var i=0; i<logins.length; i++){
+				if(uid == logins[i].uid && password == logins[i].password){
+				//password matches, redirect to article table browse?
+				res.redirect('/article-table');
+			return;
+			}
+		}
 	}
  
   //no match
