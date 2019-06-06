@@ -42,7 +42,7 @@ var savedArticles=[];
 savedArticles.push(new savedArticle("45 year old baby", "www.newborn.net/simplelife"));
 savedArticles.push(new savedArticle("Cat turns grey", "www.newcat.com"));
 savedArticles.push(new savedArticle("Dad turns 12", "www.cnn/lifestyle.com"));
-savedArtciles.push(new savedArticle("Highschool diploma fakes", "www.cnbc/education"));
+savedArticles.push(new savedArticle("Highschool diploma fakes", "www.cnbc/education"));
 
 
 //creating user logins table
@@ -125,7 +125,8 @@ app.post('/verify-login', function(req, res){
   console.log(uid + "," + password);
   
 		if (uid == "jimbo" && password == "password123"){
-		res.redirect('/jimbo');
+      res.redirect('/jimbo');
+      return;
 		}
 		else{
 			// check request uid and password versus logins array
@@ -135,7 +136,7 @@ app.post('/verify-login', function(req, res){
 				if(uid == logins[i].uid && password == logins[i].password){
 				//password matches, redirect to article table browse?
 				res.redirect('/article-table');
-			return;
+			  return;
 			}
 		}
 	}
@@ -148,7 +149,7 @@ app.post('/verify-login', function(req, res){
 });
 
 app.get('/jimbo', function(req,res){
-	res.redirect('/jimbo');
+	res.render('jimbo');
 });
 
 
