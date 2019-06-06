@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 15100);
+app.set('port', 15600);
 
 
 //GLOBAL VARIABLE ARRAYS SIMULATING DATABASE TABLES
@@ -114,6 +114,12 @@ app.get('/login', function(req, res){
   var context = {};
 
   res.render('login-form', context);
+});
+
+app.get('/logout', function(req, res){
+  var context = {};
+
+  res.render('home', context);
 });
 
 //POST route login forms sends uid/password here to be verified
