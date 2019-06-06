@@ -38,11 +38,11 @@ function savedArticles(title, url){
   this.url = url;
 }
 
-var savedArticle=[];
-savedArticle.push(new savedArticle("45 year old baby", "www.newborn.net/simplelife"));
-savedArticle.push(new savedArticle("Cat turns grey", "www.newcat.com"));
-savedArticle.push(new savedArticle("Dad turns 12", "www.cnn/lifestyle.com"));
-savedArtcile.push(new savedArticle("Highschool diploma fakes", "www.cnbc/education"));
+var savedArticles=[];
+savedArticles.push(new savedArticle("45 year old baby", "www.newborn.net/simplelife"));
+savedArticles.push(new savedArticle("Cat turns grey", "www.newcat.com"));
+savedArticles.push(new savedArticle("Dad turns 12", "www.cnn/lifestyle.com"));
+savedArtciles.push(new savedArticle("Highschool diploma fakes", "www.cnbc/education"));
 
 
 //creating user logins table
@@ -104,7 +104,7 @@ app.get('/article-table', function(req, res){
 //Displays list of saved articles
 app.get('/article-saved', function(req, res){
   var context = {};
-  context.savedArticle = savedArticle;
+  context.savedArticles = savedArticles;
   res.render('article-saved', context);
 });
 
