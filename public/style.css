@@ -78,16 +78,16 @@ ul {
 	left: 75%;
 }
 
-#logoff-btn {
+.logoff-btn {
 	position: absolute;
 	bottom: 25px;
-	left: 75%;
+	left: 85%;
 }
 
 .back-btn {
 	position: absolute;
 	bottom: 25px;
-	right: 75%;
+	right: 85%;
 }
 
 
