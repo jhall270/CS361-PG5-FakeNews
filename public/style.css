@@ -74,13 +74,13 @@ ul {
 
 .sit {
 	position: absolute;
-	bottom: 20px;
+	bottom: 50px;
 	left: 75%;
 }
 
 #logoff-btn {
 	position: absolute;
-	bottom: 10px;
+	bottom: 25px;
 	left: 75%;
 }
 
