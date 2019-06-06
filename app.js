@@ -33,7 +33,7 @@ articles.push(new article("NBA goes bankrupt", "www.nba/financeleague.com"));
 articles.push(new article("50% of American die of lung disease", "www.cnn/health/stats22.com"));
 articles.push(new article("See more wine country for improved lifestyle", "www.winehealth/lifestyle.com"));
 
-function savedArticles(title, url){
+function savedArticle(title, url){
   this.title = title;
   this.url = url;
 }
